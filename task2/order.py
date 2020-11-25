@@ -18,4 +18,6 @@ class Order:
         return self.__total
 
     def __str__(self):
-        return "\n{0} items for a total of ${1:.2f}".format(len(self.order_list), self.get_total())
+        return "Order #{}\n{} items for a total of ${:.2f}".format(self.code,
+                                                                   len(self.order_list),
+                                                                   self.get_total())

@@ -10,20 +10,20 @@ class Terminal:
 
     def greet(self):
         os.system("clear")
-        print("{:^40}".format("Welcome to Pizza Time"))
+        print("{:-^40}".format("Welcome to Pizza Time"))
 
     def boot(self):
         self.greet()
         print("{:^40}".format("Is it a takeout? y/n"))
-        current_order = Order(self.__code, True) if input() == "y" or "Y" else Order(self.__code)
+        current_order = Order(self.__code, True) if input() == ("y" or "Y") else Order(self.__code)
 
         while True:
             self.greet()
-            print("{:^40}".format("Order #" + str(current_order.code)))
-
-            print("Choose your pizza:")
+            print(current_order)
+            print("\nChoose your pizza:")
             for p in range(len(self.menu)):
-                print("{} - {}".format(p+1, self.menu[p].title))
+                position = self.menu[p]
+                print("{} - ${:.2f} - {}".format(p+1, position.cost, position.title))
             print("Enter the id of pizza, or 0 to finish")
             chosen = int(input())
 
@@ -37,7 +37,6 @@ class Terminal:
             else:
                 continue
 
-            print(current_order)
             print("\n1 - Choose another\n0 - Finish the order")
 
             if input() == "1":
@@ -45,4 +44,7 @@ class Terminal:
             else:
                 break
 
+        self.greet()
+        print(current_order)
+        print("Proceed to checkout...")
         self.__code += 1
