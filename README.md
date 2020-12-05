@@ -3,4 +3,5 @@
 
 ## Pizza Time Application
 An application for a pizza delivery terminal written intirely in Python.
-<img src="https://i.imgur.com/cXnt0Ws.png" width="30%"></img>
+
+<img src="https://i.imgur.com/cXnt0Ws.png" width="30%" display="block"></img>
